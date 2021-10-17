@@ -50,24 +50,14 @@ public class InMemoryDatabase implements Database {
         throw new IllegalArgumentException(userName + " is not a registered user");
     }
 
-//    @Override
-//    public boolean authenticate(String userName, String password) {
-//        User user = this.getUser(userName);
-//        if (user == null) {
-//            return false;
-//        } else {
-//            return user.getPassword() == password;
-//        }
-//    }
+
 
     @Override
     public boolean authenticate(String userName, String password) {
         try {
-            return this.getUser(userName).getPassword() == password;
+            return this.getUser(userName).getPassword().equals(password);
         } catch(IllegalArgumentException e) {
             return false;
-//        } catch(NullPointerException e) {
-//            return false; // This will never be called -> this block is not needed!
         }
     }
 
