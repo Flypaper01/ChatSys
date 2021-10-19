@@ -28,4 +28,11 @@ class InMemoryDatabaseTest {
         assertEquals(1,db.getNumberUsers());
         assertEquals(1,db.getNumberMessages());
     }
+    @org.junit.jupiter.api.Test
+    void testGetRecentMessages(){
+        assertEquals(null,db.getRecentMessages(1));
+        assertEquals(null,db.getRecentMessages(10));
+
+    }
+
 }
