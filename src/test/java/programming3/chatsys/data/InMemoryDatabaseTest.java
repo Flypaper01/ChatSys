@@ -9,6 +9,8 @@ class InMemoryDatabaseTest {
     void setUp() {
         db = new InMemoryDatabase();
         db.register(new User("zhang","ZhangZeyang","password"));
+        db.addMessage("Zhang","message1");
+        db.addMessage("Zhang","message2");
     }
 
     @org.junit.jupiter.api.AfterEach
@@ -30,9 +32,23 @@ class InMemoryDatabaseTest {
     }
     @org.junit.jupiter.api.Test
     void testGetRecentMessages(){
-        assertEquals(null,db.getRecentMessages(1));
-        assertEquals(null,db.getRecentMessages(10));
+        assertEquals("message2",db.getRecentMessages(1));
+        assertNull(db.getRecentMessages(10));
 
     }
+    @org.junit.jupiter.api.Test
+    void testRegister(){
+            assertFalse(db.register(new User("zhang","ZhangZeyang","password")));
+            assertTrue(db.register(new User("flypaper","Flypaper","pass")));
+            assertEquals(2,db.getNumberUsers());
+            assertFalse(db.register(new User("Zhang","ZhangZeyang","password")));
+            assertEquals(2,db.getNumberUsers());
+    }
+    @org.junit.jupiter.api.Test
+    void testAddMessage(){
+
+
+    }
+
 
 }

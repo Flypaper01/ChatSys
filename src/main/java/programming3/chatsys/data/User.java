@@ -6,6 +6,7 @@ public class User {
     private String userName;
     private String fullName;
     private String password;
+    private int lastReadId;
 
     public User(String userName, String fullName, String password) {
         this.userName = userName;
@@ -45,5 +46,13 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hash(userName);
+    }
+
+    public int getLastReadId() {
+        return lastReadId;
+    }
+
+    public void setLastReadId(int lastReadId) {
+        this.lastReadId = lastReadId;
     }
 }

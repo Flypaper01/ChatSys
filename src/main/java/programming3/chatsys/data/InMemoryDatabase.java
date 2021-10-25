@@ -1,13 +1,17 @@
 package programming3.chatsys.data;
 
+import java.sql.Timestamp;
 import java.util.LinkedList;
 import java.util.List;
 
 public class InMemoryDatabase implements Database {
     private List<User> users;
+    private int lastid = 0;
+    private List<ChatMessage> messages;
 
     public InMemoryDatabase() {
         users = new LinkedList<>();
+        messages = new LinkedList<>();
     }
 
     @Override
@@ -27,13 +31,18 @@ public class InMemoryDatabase implements Database {
         }
     }
 
-    private boolean contains(User user) {
+    private boolean contains(String userName) {
         try {
-            return this.getUser(user.getUserName()) != null;
+            return this.getUser(userName) != null;
         } catch(IllegalArgumentException e) {
             return false;
         }
     }
+
+    private boolean contains(User user){
+        return this.contains(user.getUserName());
+    }
+
 
     @Override
     public int getNumberUsers() {
@@ -63,26 +72,53 @@ public class InMemoryDatabase implements Database {
 
     @Override
     public ChatMessage addMessage(String userName, String message) {
-        return null;
+        if(this.contains(userName)){
+            lastid++;
+            ChatMessage chatMessage = new ChatMessage( this.lastid , userName , message);
+            this.messages.add(chatMessage);
+            return chatMessage;
+        } else {
+            throw new IllegalArgumentException("This account does not existed");
+        }
     }
 
     @Override
     public int getNumberMessages() {
-        return 0;
+        return this.messages.size();
     }
 
     @Override
     public List<ChatMessage> getRecentMessages(int n) {
-        return null;
+        if (n > 0 && n < getNumberMessages()){
+            return messages.subList(getNumberMessages()-n,getNumberMessages());
+        }
+        else {
+            return new LinkedList<>(messages);
+        }
     }
 
     @Override
     public List<ChatMessage> getUnreadMessages(String userName) {
-        return null;
+        User user = this.getUser(userName);
+        final int lastReadId = user.getLastReadId();
+        if (lastReadId == this.lastid) {
+            return new LinkedList<>();
+        } else {
+            int firstUnread = 0;
+            for (ChatMessage m : this.messages) {
+                firstUnread = m.getId();
+                if (firstUnread > lastReadId) {
+                    break;
+                }
+            }
+            this.getUser(userName).setLastReadId(this.lastid);
+            return this.messages.subList(firstUnread - 1, this.messages.size());
+        }
     }
 
     @Override
     public void close() {
-
     }
+
+
 }
