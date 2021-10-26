@@ -13,8 +13,12 @@ public class ChatMessage {
         this.id = id;
         this.message = message;
         this.userName = userName;
-        this.timestamp = timestamp;
+        this.timestamp = new Timestamp(System.currentTimeMillis());
     }
+
+    public ChatMessage(int lastid, String userName, String message) {
+    }
+
 
     public int getId() {
         return id;
@@ -55,5 +59,5 @@ public class ChatMessage {
         return Objects.hash(id);
     }
 }
-// Fill missing methods (constructor, getters, toString, equals, hashCode)
+
 
