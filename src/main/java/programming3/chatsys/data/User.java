@@ -14,6 +14,9 @@ public class User {
         this.password = password;
     }
 
+    public User(String line) {
+    }
+
     public String getUserName() {
         return userName;
     }
@@ -55,7 +58,7 @@ public class User {
     public void setLastReadId(int lastReadId) {
         this.lastReadId = lastReadId;
     }
-    public String format() {
+    public static String format() {
         return this.userName + "\t" + this.fullName + "\t" + this.password + "\t" + this.lastReadId;
     }
 

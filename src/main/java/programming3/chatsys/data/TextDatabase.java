@@ -13,6 +13,24 @@ public class TextDatabase extends InMemoryDatabase {
     }
 
     private void readUsers(){
+        if (this.db_User.exists()){
+            try(FileReader filereader = new FileReader("database_User");
+                BufferedReader bufferedreader = new BufferedReader(filereader);) {
+                while (true){
+                    String line = bufferedreader.readLine();
+                    if (line == null) {
+                        break;
+                    } else {
+                        User u = new User(line);
+                        this.users.add(u);
+                    }
+                }
+
+            }catch (IOException e){
+                System.out.println("");
+            }
+
+        }
 
     }
 
@@ -23,22 +41,30 @@ public class TextDatabase extends InMemoryDatabase {
     private void saveUsers() {
         try (FileWriter fileWriter = new FileWriter("database_User.txt",true);
              BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)){
-            for (User u : this.db_User)
-
+            for (User u : this.users){
+                bufferedWriter.write(User.format());
+            }
+            bufferedWriter.flush();
         } catch (IOException e) {
            System.out.println("The users can't write");
         }
     }
 
     private void saveChatMessages(){
+        try (FileWriter fileWriter = new FileWriter("database_Message.txt",true);
+             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)){
 
+            bufferedWriter.flush();
+        } catch (IOException e) {
+            System.out.println("The message can't write");
+        }
     }
 
     @Override
     public void close(){
         saveUsers();
         saveChatMessages();
-        this.close();
+        super.close();
     }
 
 

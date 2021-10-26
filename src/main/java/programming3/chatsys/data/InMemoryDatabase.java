@@ -5,9 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class InMemoryDatabase implements Database {
-    private List<User> users;
+    protected List<User> users;
     private int lastid = 0;
-    private List<ChatMessage> messages;
+    protected List<ChatMessage> messages;
 
     public InMemoryDatabase() {
         users = new LinkedList<>();
