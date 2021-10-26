@@ -89,8 +89,8 @@ public class InMemoryDatabase implements Database {
 
     @Override
     public List<ChatMessage> getRecentMessages(int n) {
-        if (n > 0 && n < getNumberMessages()){
-            return messages.subList(getNumberMessages()-n,getNumberMessages());
+        if (n > 0 && n < this.messages.size()){
+            return messages.subList(this.messages.size()-n,this.messages.size());
         }
         else {
             return new LinkedList<>(messages);

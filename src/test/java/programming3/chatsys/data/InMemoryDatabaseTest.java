@@ -6,11 +6,13 @@ class InMemoryDatabaseTest {
     private InMemoryDatabase db;
 
     @org.junit.jupiter.api.BeforeEach
-    void setUp() {
+     void setUp() {
         db = new InMemoryDatabase();
         db.register(new User("zhang","ZhangZeyang","password"));
-        db.addMessage("Zhang","message1");
-        db.addMessage("Zhang","message2");
+        db.addMessage("zhang","message1");
+        db.addMessage("zhang","message2");
+        db.addMessage("zhang","message3");
+
     }
 
     @org.junit.jupiter.api.AfterEach
@@ -20,20 +22,20 @@ class InMemoryDatabaseTest {
     }
 
     @org.junit.jupiter.api.Test
-    void testauthenticate() {
+    void testAuthenticate() {
         assertTrue(db.authenticate("zhang","password"));
         assertFalse(db.authenticate("zhang","not"));
         assertFalse(db.authenticate("wang","password"));
     }
     @org.junit.jupiter.api.Test
-    void testnewdatabase(){
+    void testNewdatabase(){
         assertEquals(1,db.getNumberUsers());
-        assertEquals(1,db.getNumberMessages());
+        assertEquals(3,db.getNumberMessages());
     }
     @org.junit.jupiter.api.Test
     void testGetRecentMessages(){
-        assertEquals("message2",db.getRecentMessages(1));
-        assertNull(db.getRecentMessages(10));
+        System.out.println(db.getRecentMessages(1));
+        System.out.println(db.getRecentMessages(5));
 
     }
     @org.junit.jupiter.api.Test
@@ -41,12 +43,13 @@ class InMemoryDatabaseTest {
             assertFalse(db.register(new User("zhang","ZhangZeyang","password")));
             assertTrue(db.register(new User("flypaper","Flypaper","pass")));
             assertEquals(2,db.getNumberUsers());
-            assertFalse(db.register(new User("Zhang","ZhangZeyang","password")));
-            assertEquals(2,db.getNumberUsers());
+            assertTrue(db.register(new User("Zhang","ZhangZeyang","password")));
+            assertEquals(3,db.getNumberUsers());
     }
     @org.junit.jupiter.api.Test
     void testAddMessage(){
-
+        System.out.println(db.addMessage("zhang","message3"));
+        System.out.println(db.addMessage("zhang","message4"));
 
     }
 
