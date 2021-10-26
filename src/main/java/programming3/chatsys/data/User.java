@@ -55,4 +55,19 @@ public class User {
     public void setLastReadId(int lastReadId) {
         this.lastReadId = lastReadId;
     }
+    public String format() {
+        return this.userName + "\t" + this.fullName + "\t" + this.password + "\t" + this.lastReadId;
+    }
+
+    public void parse(String s) {
+        String[] split = s.split("\t");
+        if (split.length == 4) {
+            this.userName = split[0];
+            this.fullName = split[1];
+            this.password = split[2];
+            this.lastReadId = Integer.parseInt(split[3]);
+        } else {
+            throw new IllegalArgumentException("The length does not fit.");
+        }
+    }
 }

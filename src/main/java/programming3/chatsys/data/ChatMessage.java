@@ -78,4 +78,18 @@ public class ChatMessage {
                 ", timestamp=" + timestamp +
                 '}';
     }
+    public String format(){
+        return this.id+"\t"+this.message+"\t"+this.userName+"\t"+this.timestamp;
+
+    }
+    public void parse(String s){
+        String[] split = s.split("\t");
+        if (split.length == 4){
+            this.id = Integer.parseInt(split[0]);
+            this.message = split[1];
+            this.userName = split[2];
+            this.timestamp = Timestamp.valueOf(split[3]);
+        }
+    }
+
 }
