@@ -23,7 +23,7 @@ public class ChatMessage {
         this.init(id, userName, new Timestamp(System.currentTimeMillis()), message);
     }
 
-    public ChatMessage() {
+    public ChatMessage(String line) {
 
     }
 
