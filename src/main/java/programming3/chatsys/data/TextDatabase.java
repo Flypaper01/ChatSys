@@ -1,7 +1,6 @@
 package programming3.chatsys.data;
 
 import java.io.*;
-import java.lang.reflect.Field;
 
 public class TextDatabase extends InMemoryDatabase {
     private File db_Message;
@@ -61,9 +60,8 @@ public class TextDatabase extends InMemoryDatabase {
         try (FileWriter fileWriter = new FileWriter("database_User.txt",true);
              BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)){
             for (User u : this.users){
-                bufferedWriter.write(User.format());
-            }
-            bufferedWriter.flush();
+                bufferedWriter.write(u.format());
+            }bufferedWriter.flush();
         } catch (IOException e) {
            System.out.println("The users can't write");
         }
@@ -72,7 +70,9 @@ public class TextDatabase extends InMemoryDatabase {
     private void saveChatMessages(){
         try (FileWriter fileWriter = new FileWriter("database_Message.txt",true);
              BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)){
-            for (ChatMessage chatMessage : this.messages)
+            for (ChatMessage chatMessage : this.messages){
+                bufferedWriter.write(chatMessage.format());
+            }
             bufferedWriter.flush();
         } catch (IOException e) {
             System.out.println("The message can't write");

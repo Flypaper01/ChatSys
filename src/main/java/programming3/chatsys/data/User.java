@@ -1,5 +1,7 @@
 package programming3.chatsys.data;
 
+import org.json.JSONObject;
+
 import java.util.Objects;
 
 public class User {
@@ -27,6 +29,12 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public User(JSONObject json) {
+        this.userName = json.getString("username");
+        this.fullName = json.getString("fullname");
+        this.password = json.getString("password");
     }
 
     @Override
@@ -58,7 +66,7 @@ public class User {
     public void setLastReadId(int lastReadId) {
         this.lastReadId = lastReadId;
     }
-    public static String format() {
+    public String format() {
         return this.userName + "\t" + this.fullName + "\t" + this.password + "\t" + this.lastReadId;
     }
 
@@ -72,5 +80,12 @@ public class User {
         } else {
             throw new IllegalArgumentException("The length does not fit.");
         }
+    }
+    public JSONObject toJSON() {
+        JSONObject json = new JSONObject();
+        json.put("username", this.userName);
+        json.put("fullname", this.fullName);
+        json.put("password", this.password);
+        return json;
     }
 }

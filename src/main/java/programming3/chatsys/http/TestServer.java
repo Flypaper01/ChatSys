@@ -6,6 +6,7 @@ import com.sun.net.httpserver.HttpServer;
 
 import java.io.*;
 import java.net.InetSocketAddress;
+import java.nio.charset.StandardCharsets;
 
 public class TestServer {
     public static void main(String[] args) throws IOException {
@@ -29,7 +30,7 @@ public class TestServer {
                 String response = "Hello World";
                 System.out.println("Sending response: " + response);
                 try {
-                    exchange.sendResponseHeaders(200, response.getBytes("UTF-8").length);
+                    exchange.sendResponseHeaders(200, response.getBytes(StandardCharsets.UTF_8).length);
                     BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(exchange.getResponseBody()));
                     writer.write(response);
                     writer.flush();

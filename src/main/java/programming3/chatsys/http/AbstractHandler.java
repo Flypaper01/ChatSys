@@ -60,7 +60,6 @@ public abstract class AbstractHandler implements HttpHandler {
         return null;
     }
 
-
     protected void sendMessages(HttpExchange exchange, List<ChatMessage> messages) {
         StringBuilder response = new StringBuilder();
         for (ChatMessage message : messages) {
