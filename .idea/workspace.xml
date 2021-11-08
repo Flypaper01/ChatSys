@@ -4,30 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="938f6094-5cec-4fbc-956c-7a4ed537e6da" name="Changes" comment="http">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20200518.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/programming3/chatsys/http/protocol/JSONProtocol.java" afterDir="false" />
+    <list default="true" id="938f6094-5cec-4fbc-956c-7a4ed537e6da" name="Changes" comment="ChatSys">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_xerial_sqlite_jdbc_3_36_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/programming3/chatsys/data/SQLiteDatabase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/programming3/chatsys/http/JSONUserHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChatSys.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ChatSys.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/programming3/chatsys/data/DatabaseAccessException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/programming3/chatsys/data/DatabaseAccessException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/programming3/chatsys/data/TextDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/programming3/chatsys/data/TextDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/programming3/chatsys/data/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/programming3/chatsys/data/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/programming3/chatsys/http/AbstractHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/programming3/chatsys/http/AbstractHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/programming3/chatsys/http/TestServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/programming3/chatsys/http/TestServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/programming3/chatsys/data/ChatMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/programming3/chatsys/data/ChatMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/programming3/chatsys/data/InMemoryDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/programming3/chatsys/data/InMemoryDatabase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/programming3/chatsys/data/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/programming3/chatsys/data/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/programming3/chatsys/data/InMemoryDatabaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/programming3/chatsys/data/InMemoryDatabaseTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/programming3/chatsys/data/ChatMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/programming3/chatsys/data/ChatMessage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +56,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -80,6 +64,9 @@
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="programming3.chatsys.data" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="programming3.chatsys.data" />
@@ -251,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635941646583</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="ChatSys">
+      <created>1635944553329</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1635944553329</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -270,10 +264,10 @@
     <MESSAGE value="new" />
     <MESSAGE value="rewrite" />
     <MESSAGE value="test InMemoryDatabase" />
-    <MESSAGE value="ChatSys" />
     <MESSAGE value="TextDatabase" />
     <MESSAGE value="ChatMessage" />
     <MESSAGE value="http" />
-    <option name="LAST_COMMIT_MESSAGE" value="http" />
+    <MESSAGE value="ChatSys" />
+    <option name="LAST_COMMIT_MESSAGE" value="ChatSys" />
   </component>
 </project>

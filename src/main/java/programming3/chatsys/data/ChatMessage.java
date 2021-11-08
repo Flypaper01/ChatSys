@@ -27,6 +27,8 @@ public class ChatMessage {
 
     }
 
+
+
     private void init(int id, String userName, Timestamp timestamp, String message) {
         if (message.indexOf('\n') >= 0) {
             throw new IllegalArgumentException("message contains a line feed");
